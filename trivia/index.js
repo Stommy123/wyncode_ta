@@ -41,6 +41,7 @@ function winner() {
   }
 }
 
+
 //OPTIONAL REPLAY
 function gameover() {
   console.log('Would you like to play again?')
@@ -62,6 +63,8 @@ function newGame() {
 
   //LOOP TO KEEP GAME RUNNING
   while (playAgain == true) {
+    points = 0;
+    yikes = 0;
 
 //OOP METHOD TO CONTAIN QUESTIONS
     questions = [
@@ -92,7 +95,7 @@ function newGame() {
       question3 = function() {
         console.log('What is 2 + 2')
         answer = rl.question('|  4  |  10  |  9  |  2  |: ', {
-          trueValue: '4',
+          trueValue: 4,
           falseValue: ''
         });
         if (answer === true) {
