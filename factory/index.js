@@ -1,16 +1,25 @@
-function Person(name, age, hair) {
+const MOVIES_LIST = [
+  ["The Shawshank Redemption", 1994, true],
+  ["The Godfather", 1972, true],
+  ["The Dark Knight", 2008, true],
+  ["Pulp Fiction", 1994, true],
+  ["Goodfellas", 1990],
+]
+
+let myMovies = []
+
+const Movie = (title, year, watched = false) => {
   return {
-    name,
-    age,
-    hair
+    title,
+    year,
+    watched
   }
 }
 
-function CreatePerson(el) {
-  return el.map(element => {
-    return Person(...element)
+const CreateMovie = (element) => {
+  return element.map(el => {
+    return Movie(...el)
   })
 }
 
-
-CreatePerson([['Tommy', 12, 'brown'], ['Timmy', 15, 'black']])
+myMovies = CreateMovie(MOVIES_LIST)
