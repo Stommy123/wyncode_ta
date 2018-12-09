@@ -2,7 +2,7 @@
 const pyramid = height => {
 for (let i = 0; i <= height; i++) {
   let output = "";
-    for (let k = 0; k <= i; k++) { output += "*" }
+  for (let k = 0; k <= i; k++) output += "*" 
   console.log(output);
   }
 }
@@ -12,7 +12,7 @@ pyramid(5)
 //SINGLE PYRAMID METHOD 2
 const pyramid2 = height => {
   let star = "*"
-  for (let i = 1; i <= height; i++){ console.log(star.repeat(i)) }
+  for (let i = 1; i <= height; i++) console.log(star.repeat(i)) 
 }
 pyramid2(5);
 
@@ -21,8 +21,8 @@ pyramid2(5);
 const pyramid3 = height => {
   for (let i = 0; i < height; i++) {
     let star=""
-    for (let j = 0; j < height - i; j++) { star += " " }
-    for (let k = 0; k <= i; k++) { star += "*" }
+    for (let j = 0; j < height - i; j++) star += " " 
+    for (let k = 0; k <= i; k++) star += "* " 
     console.log(star)
   }
 }
