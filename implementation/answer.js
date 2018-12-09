@@ -7,17 +7,16 @@ const people = [
 //1
 const youngestMember = people => {
   let youngest = people[0]
-  for (let i = 0; i < people.length; i++) {
-    if (people[i].age < youngest.age) youngest = people[i]
-  }
+  for (let i = 0; i < people.length; i++) if (people[i].age < youngest.age) youngest = people[i]
   console.log(youngest.name)
 }
 youngestMember(people)
 
+
 //2
 const youngestMember = people => {
   let youngest = people[0]
-  people.forEach(person => { if (person.age < youngest.age) youngest = person })
+  people.forEach(person => person.age < youngest.age ? youngest = person : youngest)
   console.log(youngest.name)
 }
 youngestMember(people)
