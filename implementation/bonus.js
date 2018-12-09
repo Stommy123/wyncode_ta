@@ -2,13 +2,13 @@
 //THE LOOP SHOULD TAKE INTO ACCOUNT THAT THE ARRAY CAN CHANGE AT ANY TIME
 //THIS IS SIMILAR TO THE MAX NUMBER ASSIGNMENT BUT WITH A FEW EXTRA TWISTS
 
-let people = [
+const people = [
   { name: 'Tommy', age: 20, },
   { name: 'Timmy', age: 10, },
   { name: 'Jimmy', age: 14, },
 ]
 
 
-function youngestMember(people) {
+const youngestMember = people => {
   //CODE GOES HERE
 }

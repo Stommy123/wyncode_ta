@@ -1,18 +1,23 @@
-let people = [
+const people = [
   { name: 'Tommy', age: 20, },
   { name: 'Timmy', age: 10, },
   { name: 'Jimmy', age: 14, },
 ]
 
-let youngest = people[0];
-
-function youngestMember(people) {
+//1
+const youngestMember = people => {
+  let youngest = people[0]
   for (let i = 0; i < people.length; i++) {
-    if (people[i].age < youngest.age) {
-      youngest = people[i];
-    }
+    if (people[i].age < youngest.age) youngest = people[i]
   }
-  return youngest
+  console.log(youngest.name)
 }
+youngestMember(people)
 
+//2
+const youngestMember = people => {
+  let youngest = people[0]
+  people.forEach(person => { if (person.age < youngest.age) youngest = person })
+  console.log(youngest.name)
+}
 youngestMember(people)

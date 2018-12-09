@@ -1,14 +1,14 @@
-let human = {
-  walk: function() {
+const human = {
+  walk: _ => {
     console.log("I'm walking")
   },
-  talk: function() {
+  talk: _ => {
     console.log("I'm talking")
   },
-  eat: function() {
+  eat: _ => {
     console.log("I'm eating")
   },
-  sleep: function() {
+  sleep: _ => {
     console.log("I'm sleeping")
   }
 }

@@ -6,8 +6,7 @@ const MOVIES_LIST = [
   ["Goodfellas", 1990],
 ]
 
-let myMovies = []
-
+//ORIGINAL
 const Movie = (title, year, watched = false) => {
   return {
     title,
@@ -15,11 +14,15 @@ const Movie = (title, year, watched = false) => {
     watched
   }
 }
-
 const CreateMovie = (element) => {
   return element.map(el => {
     return Movie(...el)
   })
 }
+const myMovies = CreateMovie(MOVIES_LIST)
 
-myMovies = CreateMovie(MOVIES_LIST)
+//REFRACTORED
+const Movie = (title, year, watched = false) => ({ title, year, watched })
+const CreateMovie = element => element.map(el => Movie(...el) )
+const myMovies = CreateMovie(MOVIES_LIST)
+console.log(myMovies)
