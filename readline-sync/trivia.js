@@ -1,4 +1,4 @@
-let rl = require('readline-sync')
+const rl = require('readline-sync')
 
 //PRE-DEFINING VARIABLES
 let points = 0;
@@ -6,6 +6,7 @@ let yikes = 0;
 let questions;
 let begin;
 let answer;
+let playAgain;
 
 //FUNCTION FOR RIGHT ANSWERS
 const correct = () => {
@@ -36,15 +37,12 @@ const winner = () => {
 const gameover = () => {
   console.log('Would you like to play again?')
   playAgain = rl.question(`(Y)es | (N)o: `).toLowerCase()
-  if (playAgain === "y" || playAgain === "yes") newGame();
-  else playAgain = false
+  playAgain === "y" || playAgain === "yes" ? newGame() : process.exit()
 }
 
 
 //GAME FUNCTION
 const newGame = () => {
-  points = 0;
-  yikes = 0;
   playAgain = true
 
   //LOOP TO KEEP GAME RUNNING
@@ -60,8 +58,7 @@ const newGame = () => {
           trueValue: 'Yuha',
           falseValue: ''
         });
-        if (answer === true) correct()
-        else wrong()
+        answer === true ? correct() : wrong()
       },
       question2 = () => {
         console.log('Where is Wyncode located?')
@@ -69,8 +66,7 @@ const newGame = () => {
           trueValue: 'Wynwood',
           falseValue: ''
         });
-        if (answer === true) correct()
-        else wrong()
+        answer === true ? correct() : wrong()
       },
       question3 = () => {
         console.log('What is 2 + 2')
@@ -78,8 +74,7 @@ const newGame = () => {
           trueValue: 4,
           falseValue: ''
         });
-        if (answer === true) correct()
-        else wrong()
+        answer === true ? correct() : wrong()
       },
       question4 = () => {
         console.log('Which cohort is the best cohort?')
@@ -87,8 +82,7 @@ const newGame = () => {
           trueValue: 'C26',
           falseValue: ''
         });
-        if (answer === true) correct()
-        else wrong()
+        answer === true ? correct() : wrong()
       },
     ]
 
@@ -98,15 +92,10 @@ const newGame = () => {
 
     if (begin === 'y' || begin === 'yes') {
       //QUIZ LOOP
-      questions.forEach(question => {
-        if (yikes < 3) question()
-        else console.log("Better luck next time!")
-      })
+      questions.forEach(question => yikes < 3 ? question() : console.log("Better luck next time!"))
       winner()
     }
-    else {
-      break;
-    }
+    else { process.exit() }
   }
 }
 
