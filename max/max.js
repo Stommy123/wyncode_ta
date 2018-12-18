@@ -1,9 +1,7 @@
 //BASIC
 const maxBasic = (...nums) => {
     let max = nums[0]
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] > max) max = nums[i]
-    }
+    for (let i = 0; i < nums.length; i++) { if (nums[i] > max) max = nums[i] }
     return max
 }
 console.log(maxBasic(1,7,5,2))
