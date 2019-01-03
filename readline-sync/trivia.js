@@ -95,7 +95,7 @@ const newGame = () => {
       questions.forEach(question => yikes < 3 ? question() : console.log("Better luck next time!"))
       winner()
     }
-    else { process.exit() }
+    else process.exit() 
   }
 }
 
