@@ -1,7 +1,7 @@
 const { MOVIES } = require('./data');
 
-const convertDurationToMinutes = movies =>
-  movies.map(movie => {
+const convertDurationToMinutes = moviesToConvert =>
+  moviesToConvert.map(movie => {
     let duration = movie.duration;
     let totalMin = 0;
     let totalHr = 0;
@@ -15,26 +15,26 @@ const convertDurationToMinutes = movies =>
     return { ...movie, duration };
   });
 
-const getAverageRating = movies =>
-  movies.length ? movies.reduce((acc, x) => acc + (parseFloat(x.rate) || 0), 0) / movies.length : undefined;
+const getAverageRating = moviesToRate =>
+  moviesToRate.length ? moviesToRate.reduce((acc, x) => acc + (parseFloat(x.rate) || 0), 0) / moviesToRate.length : undefined;
 
-const searchMoviesByDirector = (movies, director) => movies.filter(movie => movie.director.includes(director));
+const searchMoviesByDirector = (moviesToSearch, director) => moviesToSearch.filter(movie => movie.director.includes(director));
 
-const searchMoviesByGenre = (movies, genre) => movies.filter(movie => movie.genre.includes(genre));
+const searchMoviesByGenre = (moviesToSearch, genre) => moviesToSearch.filter(movie => movie.genre.includes(genre));
 
-const searchMoviesByGenres = (movies, genres) =>
-  movies.filter(movie => genres.every(genre => movie.genre.includes(genre)));
+const searchMoviesByGenres = (moviesToSearch, genres) =>
+  moviesToSearch.filter(movie => genres.every(genre => movie.genre.includes(genre)));
 
-const sortMoviesByDuration = movies =>
-  convertDurationToMinutes(movies.sort((a, b) => (a.duration > b.duration ? 1 : -1)));
+const sortMoviesByDuration = moviesToSort =>
+  convertDurationToMinutes(moviesToSort.sort((a, b) => (a.duration > b.duration ? 1 : -1)));
 
-const sortMoviesAlphabetically = movies => {
-  const sortedMovies = movies.sort((a, b) => (a.title > b.title ? 1 : -1));
+const sortMoviesAlphabetically = moviesToSort => {
+  const sortedMovies = moviesToSort.sort((a, b) => (a.title > b.title ? 1 : -1));
   return sortedMovies.map(movie => movie.title).slice(0, 20);
 };
 
-const groupMoviesByYear = movies =>
-  movies.reduce((acc, movie) => {
+const groupMoviesByYear = moviesToGroup =>
+  moviesToGroup.reduce((acc, movie) => {
     acc[movie.year] = acc[movie.year] || [];
     acc[movie.year].push(movie);
     return acc;
