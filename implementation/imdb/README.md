@@ -31,7 +31,7 @@
 
 - Create a function called sortMoviesAlphabetically
 - This function should take an array (our movies data) as an argument.
-- The function should sort through the array and organize the moves alphabetically
+- The function should sort through the array and organize the movies alphabetically
 - Once you've sorted the movies, you should loop through the array again, and return only an array of titles
 - As an additional challenge, lets return only the first twenty movies
 
