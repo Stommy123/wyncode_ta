@@ -11,19 +11,21 @@
 - Create a function called `searchMoviesByDirector`.
 - This function should take two arguments. An array (our movies data), and a string (the director's name)
 - The function should filter through the array returning only movies directed by the specified director
-- The letter casing for the directors name should be ignored, but the spelling should not!
+- The letter casing for the directors name should be ignored, meaning if I pass in an all lowercased string, it should still find the director with the same name
 
 ### (3)
 
 - Create a function called `searchMoviesByGenre`
 - This function should take two arguments. An array (our movies data), and a string (the desired genre)
 - The function should filter through the array returning only movies where at least one genre matches the desired genre
+- For the sake of simplicity we're not going to enforce capitalization on the user when inputting a desired genre
 
 ### (4)
 
 - Create a function called `searchMoviesByGenres`
 - This function should take two arguments. An array (our movies data), and a second array (the desired genres)
 - The function should filter through the array returning only movies where the genre matches ALL of the genres in the array that was passed in
+- For the sake of simplicity we're going to enforce capitalization on the user when inputting their desired genres
 
 ## Heating up
 
@@ -75,4 +77,4 @@
 - This function should take an array (our movies data) as an argument
 - The function should organize the movies by year (Hint: You have a function that can do this!)
 - Once the movies are organized by years, you should loop through it, and calculate the average for each year (Hint: You have a function that can do this!)
-- Finally the function should return a string "The best year was __, with an average rating of __."
+- Finally the function should return a string "The best year was **, with an average rating of **."
