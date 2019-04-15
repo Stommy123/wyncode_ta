@@ -18,7 +18,7 @@
 - Create a function called `searchMoviesByGenre`
 - This function should take two arguments. An array (our movies data), and a string (the desired genre)
 - The function should filter through the array returning only movies where at least one genre matches the desired genre
-- For the sake of simplicity we're not going to enforce capitalization on the user when inputting a desired genre
+- For the sake of simplicity we're going to enforce capitalization on the user when inputting a desired genre
 
 ### (4)
 
