@@ -2,23 +2,20 @@ const { MOVIES } = require('./data');
 
 const convertDurationToMinutes = moviesToConvert =>
   moviesToConvert.map(movie => {
-    let duration = movie.duration;
     let totalMin = 0;
     let totalHr = 0;
-    if (typeof movie.duration === 'string') {
-      movie.duration.split(' ').forEach(time => {
-        if (time.includes('h')) totalHr = parseInt(time.substr(0, time.indexOf('h'))) * 60;
-        if (time.includes('min')) totalMin = parseInt(time.replace('min', ''));
-      });
-      duration = totalHr + totalMin;
-    }
+    movie.duration.split(' ').forEach(time => {
+      if (time.includes('h')) totalHr = parseInt(time.replace('h', '')) * 60;
+      if (time.includes('min')) totalMin = parseInt(time.replace('min', ''));
+    });
+    const duration = totalHr + totalMin;
     return { ...movie, duration };
   });
 
-const getAverageRating = moviesToRate =>
-  moviesToRate.length ? moviesToRate.reduce((acc, x) => acc + (parseFloat(x.rate) || 0), 0) / moviesToRate.length : undefined;
+const getAverageRating = moviesToRate => moviesToRate.reduce((acc, movie) => acc + movie.rate, 0) / moviesToRate.length;
 
-const searchMoviesByDirector = (moviesToSearch, director) => moviesToSearch.filter(movie => movie.director.includes(director));
+const searchMoviesByDirector = (moviesToSearch, director) =>
+  moviesToSearch.filter(movie => movie.director.includes(director));
 
 const searchMoviesByGenre = (moviesToSearch, genre) => moviesToSearch.filter(movie => movie.genre.includes(genre));
 
@@ -26,12 +23,13 @@ const searchMoviesByGenres = (moviesToSearch, genres) =>
   moviesToSearch.filter(movie => genres.every(genre => movie.genre.includes(genre)));
 
 const sortMoviesByDuration = moviesToSort =>
-  convertDurationToMinutes(moviesToSort.sort((a, b) => (a.duration > b.duration ? 1 : -1)));
+  convertDurationToMinutes(moviesToSort).sort((a, b) => a.title.localeCompare(b.title));
 
-const sortMoviesAlphabetically = moviesToSort => {
-  const sortedMovies = moviesToSort.sort((a, b) => (a.title > b.title ? 1 : -1));
-  return sortedMovies.map(movie => movie.title).slice(0, 20);
-};
+const sortMoviesAlphabetically = moviesToSort =>
+  moviesToSort
+    .sort((a, b) => a.title.localeCompare(b.title))
+    .map(movie => movie.title)
+    .slice(0, 20);
 
 const groupMoviesByYear = moviesToGroup =>
   moviesToGroup.reduce((acc, movie) => {
